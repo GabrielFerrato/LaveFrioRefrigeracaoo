@@ -1,3 +1,13 @@
+// === DECLARAÇÃO DE VARIÁVEIS GLOBAIS ===
+const navigation = document.getElementById('navigation')
+const backToTopButton = document.getElementById('backToTopButton')
+
+const home = document.getElementById('home')
+const services = document.getElementById('services')
+const about = document.getElementById('about')
+const contact = document.getElementById('contact')
+// =========================================
+
 window.addEventListener('scroll', onScroll)
 
 onScroll()
@@ -77,21 +87,31 @@ ScrollReveal({
   #about header, 
   #about .content`)
 
-      // JavaScript para fazer o carrossel funcionar sozinho
-    const carouselSlide = document.querySelector('.carousel-slide');
-    const carouselImages = document.querySelectorAll('.carousel-slide img');
+// === CARROSSEL AUTOMÁTICO - SEÇÃO SOBRE NÓS ===
+document.addEventListener('DOMContentLoaded', function() {
+  const carouselSlide = document.querySelector('#about .carousel-slide');
+  
+  if (carouselSlide) {
+    const carouselImages = carouselSlide.querySelectorAll('img');
     
+    if (carouselImages.length === 0) return;
+
     let counter = 0;
     const totalImages = carouselImages.length;
 
     function moveSlide() {
-        counter++;
-        if (counter >= totalImages) {
-            counter = 0;
-        }
-        const size = carouselImages[0].clientWidth;
-        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+      const size = carouselImages[0].clientWidth;
+      
+      if (size === 0) return;
+
+      counter++;
+      if (counter >= totalImages) {
+        counter = 0;
+      }
+      carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
     }
 
     // Altere o número 3000 para mudar a velocidade (em milissegundos)
-    setInterval(moveSlide, 30);
+    setInterval(moveSlide, 3000);
+  }
+});
