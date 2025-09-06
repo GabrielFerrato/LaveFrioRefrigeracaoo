@@ -180,7 +180,7 @@ nav .wrapper {
 }
 
 nav.scroll {
-  background: #294c7cb0;
+  background: #C8C8C8;
 }
 
 nav button {
@@ -424,7 +424,7 @@ body.menu-expanded button path {
 
 /*=== FOOTER =================================*/
 footer {
-  background-color: var(--primary-color);
+  background-color: #C8C8C8;
   padding-block: 6rem;
 
   text-align: left;
@@ -744,7 +744,8 @@ footer .social-links {
   }
 
   footer p {
-    margin-bottom: 0
+    margin-bottom: 0;
+    color: var(--primary-color);
   }}
  
   
